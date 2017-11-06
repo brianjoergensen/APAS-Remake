@@ -1,0 +1,88 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+
+#livechat-compact-container,
+#livechat-eye-catcher {
+	display: none;
+}
+
+$min-height: 550px;
+
+.font-family {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.apas-container {
+	width: 100%;
+	max-width: 1600px;
+	margin: 80px auto;
+}
+
+section {
+	width: 100%;
+	display: flex !important;
+	align-items: stretch;
+
+	&:nth-of-type(even) {
+		flex-direction: row-reverse;
+	}
+}
+
+.apas-content {
+	width: 35%;
+	min-height: $min-height;
+	background: #090909;
+	padding: 40px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+/* 	.apas-world-rank {
+		position: absolute;
+		top: 40px;
+		left: 0;
+		z-index: 99999;
+		padding: 0 10px 10px 40px;
+
+		p {
+			margin: 0;
+			text-transform: uppercase;
+			font-size: .9rem;
+			letter-spacing: 2px;
+
+			span {
+				color: #fff;
+				font-weight: 400;
+			}
+		} */
+	}
+
+	h1 {
+		@extend .font-family;
+		font-size: 3.3rem;
+		font-weight: 400;
+		margin-bottom: 20px;
+		align-self: flex-start;
+		line-height: 3rem;
+	}
+
+	p {
+		@extend .font-family;
+		font-size: 1.1rem;
+		font-weight: 300;
+		line-height: 1.8rem;
+		color: #bbb;
+		letter-spacing: 0.5px;
+		align-self: flex-start;
+	}
+}
+
+.apas-image {
+	width: 65%;
+	min-height: $min-height;
+	background-size: cover;
+	background-position: top center;
+}
