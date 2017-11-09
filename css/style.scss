@@ -1,11 +1,11 @@
 
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400|Teko');
 
 #livechat-compact-container,
 #livechat-eye-catcher {
 	display: none;
-}
+} */
 
 $min-height: 550px;
 
@@ -13,10 +13,32 @@ $min-height: 550px;
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+.apas-page-load {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 1);
+	z-index: 99999999;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 1s ease-in-out;
+	opacity: 1;
+
+	svg {
+		width: 100px;
+		height: 100px;
+	}
+}
+
 .apas-container {
 	width: 100%;
 	max-width: 1600px;
-	margin: 80px auto;
+	margin: 0 auto 100px auto;
+	z-index: 1;
 }
 
 section {
@@ -24,40 +46,112 @@ section {
 	display: flex !important;
 	align-items: stretch;
 
+	&:first-of-type {
+		padding: 362px 0 80px 0;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		margin-top: -282px;
+		/* background: #090909; */
+		position: relative;
+		overflow: hidden;
+
+		.apas-video-container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background: #090909;
+			top: 0;
+			left: 0;
+
+			iframe {
+				width: 120%;
+				height: 120%;
+				opacity: .3;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		h1, small {
+			color: rgba(255, 255, 255, 1);
+			font-size: 8rem;
+			font-family: 'Teko', sans-serif;
+			text-transform: uppercase;
+			display: block;
+			text-align: center;
+			line-height: 108px;
+		}
+
+		small {
+			color: rgba(255, 255, 255, .5);
+			font-size: 6rem;
+		}
+
+		.trophy {
+			width: 140px;
+			margin: 0 auto 20px auto;
+			display: block;
+		}
+	}
+
+	&:nth-of-type(2) {
+		/* box-shadow: 0 -40px 120px -40px rgba(0, 0, 0, 1); */
+	}
+
 	&:nth-of-type(even) {
 		flex-direction: row-reverse;
 	}
+
+/* 	&:nth-of-type(1) {
+		.apas-world-rank {
+			color: #f6303e;
+		}
+	}
+
+	&:nth-of-type(2) {
+		.apas-world-rank {
+			color: #0373fd;
+		}
+	}
+
+	&:nth-of-type(3) {
+		.apas-world-rank {
+			color: #36be53;
+		}
+	}
+
+	&:nth-of-type(4) {
+		.apas-world-rank {
+			color: #0373fd;
+		}
+	} */
 }
 
 .apas-content {
-	width: 35%;
+	width: 40%;
 	min-height: $min-height;
 	background: #090909;
-	padding: 40px;
+	padding: 0 120px;
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 
-/* 	.apas-world-rank {
-		position: absolute;
-		top: 40px;
-		left: 0;
-		z-index: 99999;
-		padding: 0 10px 10px 40px;
+	.apas-world-rank {
+		padding-bottom: 40px;
+		text-transform: uppercase;
+		font-size: .9rem;
+		letter-spacing: 2px;
 
-		p {
-			margin: 0;
-			text-transform: uppercase;
-			font-size: .9rem;
-			letter-spacing: 2px;
-
-			span {
-				color: #fff;
-				font-weight: 400;
-			}
-		} */
+		span {
+			color: #fff;
+			font-weight: 400;
+		}
 	}
 
 	h1 {
@@ -77,12 +171,78 @@ section {
 		color: #bbb;
 		letter-spacing: 0.5px;
 		align-self: flex-start;
+		float: left;
+
+		&:nth-of-type(2):before {
+			content: '';
+			width: 50%;
+			height: 1px;
+			background: #252525;
+			float: left;
+			margin-bottom: 20px;
+			margin-right: 50%;
+		}
 	}
 }
 
 .apas-image {
-	width: 65%;
+	width: 60%;
 	min-height: $min-height;
 	background-size: cover;
 	background-position: top center;
+}
+
+@media screen and (max-width: 1200px) {
+	body {
+		background: none !important;
+		background-color: black !important;
+	}
+
+	.apas-hero {
+		display: none;
+	}
+
+	section {
+		flex-direction: column;
+
+		&:first-of-type {
+			flex-direction: column;
+
+			.apas-video-container {
+				display: none;
+			}
+
+			img {
+				margin-top: 80px;
+			}
+
+			h1, small {
+				line-height: 78px;
+			}
+
+			h1 {
+				font-size: 6rem;
+			}
+
+			small {
+				font-size: 5rem;
+			}
+		}
+
+		&:nth-of-type(even) {
+			flex-direction: column;
+		}
+	}
+
+	.apas-content,
+	.apas-image {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+
+	.apas-content {
+		padding: 0 40px;
+	}
 }
